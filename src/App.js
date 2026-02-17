@@ -1,17 +1,24 @@
 import './App.css';
-import { GalleryItem } from './components/Gallery/Gallery';
+import { UserRow } from './components/UserRow/UserRow';
+import { UserTable } from './components/UserTable/UserTable';
+import { App2 } from './components/App/App';
 
 const products = [
-  { id: 1, url: "/irina.jpg", title: "Фото 1", author: "Ирина" },
-  { id: 2, url: "/artem.avif", title: "Фото 2", author: "Артем" },
-  { id: 3, url: "/kirill.webp", title: "Фото 3", author: "Кирилл" },
+  { id: 1, name: "Оля", age: 20, city: "Киев" },
+  { id: 2, name: "Игорь", age: 30, city: "Одесса" },
+  { id: 3, name: "Лена", age: 25, city: "Львов" },
 ];
 
+function formatAge(age) {
+  return `${age} лет`;
+}
 
 function App() {
   return (
     <div className="App">
-      <GalleryItem products={products}></GalleryItem>
+      <UserRow products={products}></UserRow>
+      <UserTable products={products} formatAge={formatAge}></UserTable>
+      <App2 products={products} formatAge={formatAge}></App2>
     </div>
   );
 }
